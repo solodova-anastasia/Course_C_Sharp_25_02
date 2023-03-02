@@ -15,7 +15,7 @@ if (a > b)
 }
 else if (a == b)
 {
-    Console.Write(a = b);
+    Console.Write("a = b");
 }
 else
 {
