@@ -4,3 +4,20 @@ a = 5; b = 7->max = 7
 a = 2 b = 10->max = 10
 a = -9 b = -3->max = -3
 
+Console.WriteLine("Введите число: ");
+string s_a = Console.ReadLine()!;
+string s_b = Console.ReadLine()!;
+int a = int.Parse(s_a);
+int b = int.Parse(s_b);
+if (a > b)
+{
+    Console.Write(a = "max", b = "min");
+}
+else if (a == b)
+{
+    Console.Write(a = b);
+}
+else
+{
+    Console.Write(a = "min", b = "max");
+}
