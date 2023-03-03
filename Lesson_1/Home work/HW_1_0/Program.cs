@@ -19,5 +19,5 @@ else if (a == b)
 }
 else
 {
-    Console.Write(a+" = min", b+" = max");
+    Console.Write(b+" = max", a+" = min");
 }
