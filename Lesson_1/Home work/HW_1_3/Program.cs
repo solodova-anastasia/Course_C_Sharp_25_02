@@ -3,17 +3,13 @@
 //5 -> 2, 4
 //8 -> 2, 4, 6, 8
 
-string s_a = Console.ReadLine("Введите число")!;
-int a = int.Parse(s_a);
-int b = 2;
+int num = int.Parse(Console.ReadLine("Введите число"));
+int i = 2;
 
-while (2 <= a)
+while (i <= num)
 {
-if (a%2 == 0)
-{
-Console.Write(b+" ");
-b++;
-}
+Console.Write($"{i} ");
+i += 2;
 }
 
 
