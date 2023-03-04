@@ -11,13 +11,15 @@ int a = int.Parse(s_a);
 int b = int.Parse(s_b);
 if (a > b)
 {
-    Console.Write(a+" = max", b+" = min");
+    Console.Write(a+" = max; ");
+    Console.Write(b+" = min");
 }
 else if (a == b)
 {
-    Console.Write("a = b");
+    Console.Write("Числа равны");
 }
 else
 {
-    Console.Write(b+" = max", a+" = min");
+    Console.Write(a+" = min; ");
+    Console.Write(b+" = max");
 }
