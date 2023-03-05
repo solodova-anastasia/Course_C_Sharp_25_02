@@ -3,17 +3,20 @@
 //78 -> третьей цифры нет
 //32679 -> 6
 
-int TakeNum(int num)
+void ThirdNum(int num)
 {
-if (num % 100 == 0)
-Console.WriteLine(num);
-else 
-return num % 10;
+    Console.Write($"{num} -> ");
+    if (num < 100)
+    {
+        Console.WriteLine("there is no third digit");
+        return;
+    }
+
+    while (num > 999) num /= 10;
+    Console.WriteLine(num % 10);
 }
 
-
-int result = TakeNum(new Random().Next(100, 1000));
-Console.WriteLine(result);
+ThirdNum(int.Parse(Console.ReadLine()!));
 
 
 
