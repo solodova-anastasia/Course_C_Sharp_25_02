@@ -4,11 +4,10 @@
 
 void Kub(int num)
 {
-for(int i = 1 ; i <=num; i++){
+for(int i = 1 ; i <=num; i++)
+{
 Console.Write(i * i * i +" ,");
 }
-
 }
-
 int x = int.Parse(Console.ReadLine()!);
 Kub(x);
