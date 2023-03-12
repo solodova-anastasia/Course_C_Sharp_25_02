@@ -2,16 +2,18 @@
 //452 -> 11
 //82 -> 10
 //9012 -> 12
-//ЧЕРНОВИК!!
-int SumNum(int num)
+
+int SumNums_1(int num)
 {
-    int all_sum = 0;
-    for (int i = 1; i <= num; i++)
-        all_sum += i;
-    
-    return all_sum;
+    int n_sum = 0;
+
+    while (num > 0)
+    {
+        n_sum += num % 10;
+        num /= 10;
+    }
+    return n_sum;
 }
 
-int A = int.Parse(Console.ReadLine()!);
-int result = SumNum(A);
-Console.WriteLine(result);
+int num_1 = int.Parse(Console.ReadLine()!);
+Console.WriteLine(SumNums_1(num_1));

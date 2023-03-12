@@ -2,20 +2,24 @@
 // 3, 5 -> 243 (3⁵)
 // 2, 4 -> 16
 
-// ЧЕРНОВИК!
-Console.WriteLine("Введите число A");
-Console.WriteLine("Введите число B");
-int A = int.Parse(Console.Readline());
-int B = int.Parse(Console.Readline());
-int result = A;
-{
-        for (int i = 1; i <= B; i++)
-        {
-            result = result * A;
-        }
-    Console.WriteLine("a в степени b = " + result);
+double PowNum(int a, int b)
+{   
+    double n_pow = 1;
+    int b_abs = Math.Abs(b);
+    
+    for (int i = 1; i <= b_abs; i++)
+    {
+        if (b > 0)
+            n_pow *= a; 
+        else
+            n_pow /= a;
+    }  
+    return n_pow;  
 }
 
-int A = int.Parse(Console.ReadLine()!);
-int result = NumVStepen(A);
-Console.WriteLine(result);
+Console.WriteLine("Enter a number: ");
+int num_1 = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Enter degree of number: ");
+int num_2 = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine(PowNum(num_1, num_2));
