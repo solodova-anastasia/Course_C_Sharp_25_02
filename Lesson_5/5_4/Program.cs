@@ -1,41 +1,46 @@
-﻿// 3. Задайте одномерный массив из 123 случайных чисел.
-// Найдите количество элементов массива, значения которых лежат в отрезке [10,99].
+﻿// Найдите произвдение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, 
+//второй и предпослений и т.д. Результат запишите в новом массиве.
+// [12345] -> 583
+// [6736] - > 36 21
 
 void Print(int[] arr)
 {
-int size = arr.Length;
+    int size = arr.Length;
 
-for (int i = 0; i < size; i++)
-Console.Write($"{arr[i]} ");
-Console.WriteLine();
+    for (int i = 0; i < size; i++)
+        Console.Write($"{arr[i]} ");
+    Console.WriteLine();
 }
 
 int[] MassNums(int size, int from, int to)
 {
-int[] arr = new int[size];
+    int[] arr = new int[size];
 
-for (int i = 0; i < size; i++)
-arr[i] = new Random().Next(from, to);
-return arr;
+    for (int i = 0; i < size; i++)
+        arr[i] = new Random().Next(from, to);
+    return arr;
 }
 
-int SumPosNeg(int[] arr)
+int[] PairsNum(int[] arr)
 {
-int num_2 = 0;
+    int size = arr.Length;
+    int flex_size = size / 2 + size % 2;
+    int[] new_arr = new int[flex_size];
 
-for (int i = 0; i < arr.Length; i++)
-{
-if (10 <= arr[i] && arr[i] <= 99)
-num_2++;
+    for (int i = 0; i < size / 2; i++)
+        new_arr[i] = arr[i] * arr[size - i - 1];
 
+    if (size % 2 == 1)
+        new_arr[flex_size - 1] = arr[size / 2];
+    return new_arr;
 }
-return num_2;
-}
-
 
 int num = int.Parse(Console.ReadLine()!);
 int start = int.Parse(Console.ReadLine()!);
 int stop = int.Parse(Console.ReadLine()!);
+
 int[] mass = MassNums(num, start, stop);
 Print(mass);
-Console.WriteLine (SumPosNeg(mass));
+int[] arr_new = PairsNum(mass);
+Print(arr_new);
+

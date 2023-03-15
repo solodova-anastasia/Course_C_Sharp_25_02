@@ -1,5 +1,5 @@
-﻿// 3. Задайте одномерный массив из 123 случайных чисел.
-// Найдите количество элементов массива, значения которых лежат в отрезке [10,99].
+﻿// 2. Задайте массив. Напишите программу, которая определяет,
+// присутствует ли заданное число в массиве.
 
 void Print(int[] arr)
 {
@@ -19,22 +19,24 @@ arr[i] = new Random().Next(from, to);
 return arr;
 }
 
-int SumPosNeg(int[] arr)
+void SumPosNeg(int[] arr, int num_1)
 {
-int num_2 = 0;
-
 for (int i = 0; i < arr.Length; i++)
 {
-if (10 <= arr[i] && arr[i] <= 99)
-num_2++;
+if (arr[i] == num_1)
+{
+Console.WriteLine("Да");
+return;
 }
-return num_2;
+}
+Console.WriteLine("No");
 }
 
 
 int num = int.Parse(Console.ReadLine()!);
 int start = int.Parse(Console.ReadLine()!);
 int stop = int.Parse(Console.ReadLine()!);
+int num_1 = int.Parse(Console.ReadLine()!);
 int[] mass = MassNums(num, start, stop);
 Print(mass);
-Console.WriteLine (SumPosNeg(mass));
+SumPosNeg(mass, num_1);
