@@ -6,7 +6,7 @@ int EnterNumber(int num)
 {
     int count = 0;
 
-    for (int i = 0; i <= num; i++)
+    for (int i = 1; i <= num; i++)
     {
         Console.Write($"Число {i}: ");
         int a = int.Parse(Console.ReadLine()!);
@@ -17,5 +17,5 @@ int EnterNumber(int num)
 
 Console.Write("Сколько чисел будете вводить?");
 int a = int.Parse(Console.ReadLine()!);
-int result = EnterNumber(a-1);
+int result = EnterNumber(a);
 Console.WriteLine($"Пользователь ввёл {result} число(а) больше 0.");
