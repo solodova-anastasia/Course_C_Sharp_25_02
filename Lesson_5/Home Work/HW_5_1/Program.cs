@@ -21,7 +21,7 @@ int[] MassNums(int size, int from, int to)
     return arr;
 }
 
-void SumPos(int[] arr)
+void OddSumNum(int[] arr)
 {
     int even_pos;
     even_pos = 0;
@@ -40,4 +40,4 @@ int stop = int.Parse(Console.ReadLine()!);
 
 int[] mass = MassNums(num, start, stop);
 Print(mass);
-SumPos(mass);
+OddSumNum(mass);
