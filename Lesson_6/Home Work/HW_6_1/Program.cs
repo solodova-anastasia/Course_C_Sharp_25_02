@@ -25,4 +25,4 @@ Console.Write("Введите значение b2: ");
 int b2 = int.Parse(Console.ReadLine()!);
 Console.Write("Введите значение k2: ");
 int k2 = int.Parse(Console.ReadLine()!);
-Intersection(b1, k1, b1, k2);
+Intersection(b1, k1, b2, k2);
