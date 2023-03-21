@@ -1,6 +1,5 @@
-﻿// 3. Задайте двумерный массив. Найдите сумму элементов главной диагонали.
-// https://4apple.org/summa-diagonalnyh-jelementov-matricy/
-// https://ru.wikipedia.org/wiki/%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B4%D0%B8%D0%B0%D0%B3%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C
+﻿// 4. Задайте двумерный массив. Введите элемент, и найдите первое его вхождение,
+// выведите позиции по горизонтали и вертикали, или напишите, что такого элемента нет.
 
 void Print(int[,] arr)
 {
@@ -27,15 +26,17 @@ arr[i, j] = new Random().Next(from, to);
 return arr;
 }
 
-int SumMass(int[,] array)
+string Example (int [,] array, int num)
 {
-int sumarray = 0;
 for (int i = 0; i < array.GetLength(0); i++)
-for (int j = 0; j < array.GetLength(1); j++)
 {
-if (i == j) sumarray = sumarray + array[i,j];
+for (int j = 0; j < array.GetLength(1); j ++)
+{
+if (array [i,j] == num)
+return $"{i+1} {j+1}";
 }
-return sumarray;
+}
+return "Нет";
 }
 
 int num_row = int.Parse(Console.ReadLine()!);
@@ -45,5 +46,6 @@ int stop = int.Parse(Console.ReadLine()!);
 
 int[,] mass = MassNums(num_row, num_column, start, stop);
 Print(mass);
-int sum = SumMass(mass);
-Console.WriteLine($"Sum: {sum}");
+int num = int.Parse(Console.ReadLine()!);
+string summ = Example(mass, num);
+Console.WriteLine(summ);
