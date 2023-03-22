@@ -31,22 +31,23 @@ double[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
-void Average (int i, int j);
-
-for (int j = 0; j < array.GetLength(1); j++)
-{
-    double sum = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+void Average(int i, int j)
+  
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        sum += arr[i, j];
+        double sum = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            sum += arr[i, j];
+        }
+        middle = sum / (i + 1);
     }
-     middle = sum / (i+1);
-}
-Console.ReadLine();
+    Console.ReadLine();
 
-Console.WriteLine("Enter amount of rows: ");
+
+Console.Write("Enter number of rows: ");
 int num_row = int.Parse(Console.ReadLine()!);
-Console.WriteLine("Enter amount of columns: ");
+Console.Write("Enter number of columns: ");
 int num_column = int.Parse(Console.ReadLine()!);
 int start = int.Parse(Console.ReadLine()!);
 int stop = int.Parse(Console.ReadLine()!);
