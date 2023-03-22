@@ -32,6 +32,7 @@ int[,] MassNums(int row, int column, int from, int to)
 }
 
 string Position(int[,] array, int num);
+
 int pos1 = 0;
 int pos2 = 0;
 {
