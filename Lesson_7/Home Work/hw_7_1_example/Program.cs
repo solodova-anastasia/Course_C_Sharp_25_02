@@ -41,7 +41,7 @@ void PositionSelection(int[,] Array, int NumberM, int NumberN, int M, int N)
     if (NumberM >= M | NumberN >= N | NumberM < 0 | NumberN < 0)
     {
         Console.WriteLine();
-        Console.WriteLine("Указанные значения вне диапазона массива!");
+        Console.WriteLine("Указанные значения вне диапазона массив!");
     }
     else
     {
