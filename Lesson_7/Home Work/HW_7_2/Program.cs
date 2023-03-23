@@ -31,19 +31,23 @@ double[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
-void Average(int i, int j)
-  
+void Average(int[,] array)
+  {
+    int row = array.GetLength(0);
+    int column = array.GetLength(1);
+       
     for (int j = 0; j < array.GetLength(1); j++)
+ 
     {
         double sum = 0;
-        for (int i = 0; i < array.GetLength(0); i++)
+              for (int i = 0; i < array.GetLength(0); i++)
         {
-            sum += arr[i, j];
+            sum = sum + array[i,j];
         }
-        middle = sum / (i + 1);
+       sum = sum / row;
     }
     Console.ReadLine();
-
+  }
 
 Console.Write("Enter number of rows: ");
 int num_row = int.Parse(Console.ReadLine()!);
@@ -54,5 +58,5 @@ int stop = int.Parse(Console.ReadLine()!);
 
 double[,] mass = MassNums(num_row, num_column, start, stop);
 Print(mass);
-string summ = Average(mass, middle);
-Console.WriteLine($"Среднее арифметическое элементов в каждом столбце: {middle}");
+string summ = Average(mass, sum);
+Console.WriteLine($"Среднее арифметическое элементов в каждом столбце: {sum}");

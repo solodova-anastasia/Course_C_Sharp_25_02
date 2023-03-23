@@ -31,16 +31,17 @@ int[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
-string Position(int[,] array, int num);
-
-int pos1 = 0;
-int pos2 = 0;
+int[] Position(int[,] array, int num);
 {
+    int row = arr.GetLength(0);
+    int column = arr.GetLength(1);
+
     if (array[i, j] == num)
         pos1 = i + 1 && pos2 = j + 1;
     Console.WriteLine($"{num}");
 }
- Console.WriteLine("такого элемента в массиве не существует");
+Console.WriteLine("такого элемента в массиве не существует");
+
 
 Console.WriteLine("Enter amount of rows: ");
 int num_row = int.Parse(Console.ReadLine()!);
@@ -48,10 +49,8 @@ Console.WriteLine("Enter amount of columns: ");
 int num_column = int.Parse(Console.ReadLine()!);
 int start = int.Parse(Console.ReadLine()!);
 int stop = int.Parse(Console.ReadLine()!);
-int pos1 = int.Parse(Console.ReadLine()!);
-int pos2 = int.Parse(Console.ReadLine()!);
 
-int[,] mass = MassNums(num_row, num_column, start, stop, pos1, pos2);
+int[,] mass = MassNums(num_row, num_column, start, stop);
 Print(mass);
 int num = int.Parse(Console.ReadLine()!);
 string sum = Position(mass, num);
