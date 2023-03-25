@@ -27,21 +27,24 @@ void PrintArray(int[,] Array, int M, int N)
     }
 }
 
-
-// Метод получения числа из диапазона:
-void PositionSelection(int[,] Array, int NumberM, int NumberN, int M, int N)
+void Average(int[,] array, int M, int N)
 {
-    if (NumberM >= M | NumberN >= N | NumberM < 0 | NumberN < 0)
+    int row = array.GetLength(0);
+    int column = array.GetLength(1);
+
+    for (int j = 0; j < array.GetLength(1); j++)
+
     {
-        Console.WriteLine();
-        Console.WriteLine("Указанные значения вне диапазона массива!");
+        double sum = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            sum = sum + array[i, j];
+        }
+        sum = sum / row;
+         Console.WriteLine();
+        Console.WriteLine($"Среднее арифметическое элементов в столбце {j+1}: {sum}");
     }
-    else
-    {
-        Console.WriteLine();
-        Console.Write("Полученное число: ");
-        Console.WriteLine(Array[NumberM, NumberN]);
-    }
+    Console.ReadLine();
 }
 
 // Ввод диапазона массива:
@@ -55,11 +58,4 @@ FillArray(Array, M, N);
 
 // Передача данных в метод вывода на экран:
 PrintArray(Array, M, N);
-
-// Выбор числа из диапазона массива:
-Console.WriteLine();
-Console.Write($"Введите номер строки элемента массива от 0 до {M - 1}: ");
-int NumberM = Convert.ToInt32(Console.ReadLine());
-Console.Write($"Введите номер столбца элемента массива от 0 до {N - 1}: ");
-int NumberN = Convert.ToInt32(Console.ReadLine());
-PositionSelection(Array, NumberM, NumberN, M, N);
+Average(Array, M, N);

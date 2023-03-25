@@ -5,36 +5,33 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-void Print(double[,] arr)
+// Метод заполнения массива:
+int[,] FillArray(int[,] Array, int M, int N)
 {
-    int row = arr.GetLength(0);
-    int column = arr.GetLength(1);
-
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < M; i++)
     {
-        for (int j = 0; j < column; j++)
-            Console.Write($" {arr[i, j]} ");
+        for (int j = 0; j < N; j++)
+        {
+            Array[i, j] = new Random().Next(-10, 11);
+        }
+    }
+    return (Array);
+}
+
+// Метод вывода массивана экран:
+void PrintArray(int[,] Array, int M, int N)
+{
+    for (int k = 0; k < M; k++)
+    {
+        for (int l = 0; l < N; l++)
+        {
+            Console.Write(Array[k, l] + " ");
+        }
         Console.WriteLine();
     }
-    Console.WriteLine();
 }
 
-double[,] MassNums(int row, int column, int from, int to)
-{
-    double[,] arr = new double[row, column];
-    Random n_new = new Random();
-
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < column; j++)
-        {
-            arr[i, j] = Math.Round(n_new.NextDouble() * (from + to) - from, 2);
-        }
-        return arr;
-    }
-}
-
-void Average(int[,] array)
+void Average(int[,] array, int M, int N)
 {
     int row = array.GetLength(0);
     int column = array.GetLength(1);
@@ -48,18 +45,21 @@ void Average(int[,] array)
             sum = sum + array[i, j];
         }
         sum = sum / row;
+         Console.WriteLine();
+        Console.WriteLine($"Среднее арифметическое элементов в столбце {j+1}: {sum}");
     }
     Console.ReadLine();
 }
 
-Console.Write("Enter number of rows: ");
-int num_row = int.Parse(Console.ReadLine()!);
-Console.Write("Enter number of columns: ");
-int num_column = int.Parse(Console.ReadLine()!);
-int start = int.Parse(Console.ReadLine()!);
-int stop = int.Parse(Console.ReadLine()!);
+// Ввод диапазона массива:
+Console.Write("Введите колличество строк двумерного массива M: ");
+int M = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите колличество столбцов двумерного массива N: ");
+int N = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+int[,] Array = new int[M, N];
+FillArray(Array, M, N);
 
-double[,] mass = MassNums(num_row, num_column, start, stop);
-Print(mass);
-string summ = Average(mass, sum);
-Console.WriteLine($"Среднее арифметическое элементов в каждом столбце: {sum}");
+// Передача данных в метод вывода на экран:
+PrintArray(Array, M, N);
+Average(Array, M, N);
