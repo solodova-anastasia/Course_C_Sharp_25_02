@@ -25,29 +25,32 @@ double[,] MassNums(int row, int column, int from, int to)
     Random n_new = new Random();
 
     for (int i = 0; i < row; i++)
+    {
         for (int j = 0; j < column; j++)
+        {
             arr[i, j] = Math.Round(n_new.NextDouble() * (from + to) - from, 2);
-
-    return arr;
+        }
+        return arr;
+    }
 }
 
 void Average(int[,] array)
-  {
+{
     int row = array.GetLength(0);
     int column = array.GetLength(1);
-       
+
     for (int j = 0; j < array.GetLength(1); j++)
- 
+
     {
         double sum = 0;
-              for (int i = 0; i < array.GetLength(0); i++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            sum = sum + array[i,j];
+            sum = sum + array[i, j];
         }
-       sum = sum / row;
+        sum = sum / row;
     }
     Console.ReadLine();
-  }
+}
 
 Console.Write("Enter number of rows: ");
 int num_row = int.Parse(Console.ReadLine()!);
