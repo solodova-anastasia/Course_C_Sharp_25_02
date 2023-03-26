@@ -74,3 +74,4 @@ Print(arr_2);
 
 int[,] res_matrix = MatrixProduct(arr_1, arr_2);
 Print(res_matrix);
+

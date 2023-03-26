@@ -1,6 +1,6 @@
 ﻿// Задача 1: Задайте двумерный массив из целых чисел.
 // Напишите программу, которая удалит строку и столбец, на пересечении которых расположен наименьший элемент массива.
-// Напрмер:
+// Например:
 // 1472
 // 5923
 // 8424
@@ -34,32 +34,52 @@ int[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
-int[] FrequencyDict(int[,] arr, int max_num)
+int[] MinElem(int[,] arr, int max_num)
 {
-    int[] freq = new int[max_num];
+    int row = arr.GetLength(0);
+    int column = arr.GetLength(1);
+    int min_num = arr[0, 0];
+    int[] indexes = new int[2];
 
-    foreach (int item in arr) freq[item] += 1;
-    return freq;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < column; j++)
+            if (min_num > arr[i, j])
+            {
+                min_num = arr[i, j];
+                indexes[0] = i;
+                indexes[1] = j;
+            }
+    }
+    Console.WriteLine(arr[indexes[0], indexes[1]]);
+    return indexes;
 }
 
-void PrintMass(int[] arr)
+void WithoutRowColumns(int[,] arr, int[] m_indexes)
 {
-    for (int i = 0; i < arr.Length; i++)
-        Console.WriteLine($"{i} meets: {arr[i]}");
+    int row = arr.GetLength(0);
+    int column = arr.GetLength(1);
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < column; j++)
+            if (m_indexes[0] == i || m_indexes[1] == j) continue;
+            else Console.WriteLine($"{arr[i, j],3}");
+        Console.WriteLine();
+    }
     Console.WriteLine();
 }
-
 
 Console.Write("Enter the number of rows: ");
 int row_num = int.Parse(Console.ReadLine()!);
 Console.Write("Enter the number of columns: ");
 int column_num = int.Parse(Console.ReadLine()!);
-
+Console.Write("Enter the minimum number of matrix: ");
 int start = int.Parse(Console.ReadLine()!);
+Console.Write("Enter the maximum number of matrix: ");
 int stop = int.Parse(Console.ReadLine()!);
-int[,] mass = MassNums(row_num, column_num, start, stop);
 
+int[,] mass = MassNums(row_num, column_num, start, stop);
 Print(mass);
 
-int[] new_mass = FrequencyDict(mass, stop);
-PrintMass(new_mass);
+int[] muss_sum = MinElem(mass);
+WithoutRowColumns(muss_sum);
