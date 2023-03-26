@@ -5,5 +5,64 @@
 // Результирующая матрица будет:
 // 18 20
 // 15 18
+// https://ru.onlinemschool.com/math/assistance/matrix/multiply
 
+void Print(int[,] arr)
+{
+    int row_size = arr.GetLength(0);
+    int column_size = arr.GetLength(1);
 
+    for (int i = 0; i < row_size; i++)
+    {
+        for (int j = 0; j < column_size; j++)
+            Console.Write($" {arr[i, j],3} ");
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+int[,] MatrixProduct(int[,] arr_first, int[,] arr_second)
+{
+    int row_1 = arr_first.GetLength(0);
+    int column_1 = arr_first.GetLength(1);
+
+    int row_2 = arr_first.GetLength(0);
+    int column_2 = arr_first.GetLength(1);
+
+    int pr_matrix = new int[row_1, column_1];
+
+    if (column_1 != row_2) return pr_matrix;
+    else if (column_1 == row_2)
+        pr_matrix = new int[row_1, column_1];
+
+    for (int i = 0; i < row_1; i++)
+    {
+        for (int j = 0; i < column_2; j++)
+        {
+            for (int p = 0; p < column 1; p++)
+             pr_matrix[i, j] += arr_first[i, p] * arr_second[p, j];
+        }
+    }
+return pr_matrix;
+}
+
+Console.Write("Enter the number of rows 1: ");
+int row_1 = int.Parse(Console.ReadLine()!);
+Console.Write("Enter the number of columns 1: ");
+int column_1 = int.Parse(Console.ReadLine()!);
+
+Console.Write("Enter the number of rows 2: ");
+int row_2 = int.Parse(Console.ReadLine()!);
+Console.Write("Enter the number of columns 2: ");
+int column_2 = int.Parse(Console.ReadLine()!);
+
+int[,] arr_1 = MussNums(row_1, column_1, 1, 10);
+Print(arr_1);
+int[,] arr_2 = MussNums(row_2, column_2, 1, 10);
+Print(arr_2);
+
+int start = int.Parse(Console.ReadLine()!);
+int stop = int.Parse(Console.ReadLine()!);
+
+int[,] res_matrix = MatrixProduct(arr_1, arr_2);
+Print(res_matrix);
