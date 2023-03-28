@@ -14,7 +14,7 @@ void Print(int[,] arr)
     for (int i = 0; i < row_size; i++)
     {
         for (int j = 0; j < column_size; j++)
-            Console.Write($" {arr[i, j]} ");
+            Console.Write($" {arr[i, j],3} ");
         Console.WriteLine();
     }
     Console.WriteLine();
