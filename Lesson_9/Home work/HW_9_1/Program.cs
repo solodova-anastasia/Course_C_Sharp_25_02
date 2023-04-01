@@ -3,14 +3,16 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8 -> 30
 
-void Sum(int M, int N)
+int SumNum(int M, int N)
 {
-    if (M > N || M == N || M < 0 || N < 0) return 0;
-    ValuesSet(M, N - 1);
-    Console.Write($"{N} ");
+    if (M > N || M < 0 || N < 0) return 0;
+    if (M == N) return N;
+    return SumNum(M + 1, N) + M;
 }
 
+Console.WriteLine("Введите целое положительное число M");
 int num_1 = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите целое положительное число N");
 int num_2 = int.Parse(Console.ReadLine()!);
-Sum(num);
 
+Console.WriteLine(SumNum(num_1, num_2));
